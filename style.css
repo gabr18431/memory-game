@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+.control-buttons {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #2195f3bf;
+    z-index: 10;
+}
+.control-buttons  .card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.control-buttons  input {
+    background-color: #eee;
+    color: #444;
+    padding: 15px 25px;
+    font-size: 30px;
+    border-radius: 6px;
+    border: 0;
+    outline: 0;
+}
+.control-buttons  span {
+    background-color: #f44336;
+    color: white;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.container {
+    width: 70%;
+    margin: auto;
+}
+img {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+}
+.info-container {
+    margin: 20px auto 0;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #2196f3;
+    border-radius: 6px;
+}
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.game-container.stop-clicking {
+    pointer-events: none;
+}
+.game-container .game-block {
+    height: 200px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 0 0 200px;
+    margin: 0 10px 20px;
+    text-align: center;
+}
+.game-container .game-block .front {
+    background-color: #333;
+    line-height: 200px;
+    color: #f6f6f6;
+    font-size: 140px;
+    font-weight: bold;
+}
+.game-container .game-block .back {
+    transform: rotateY(180deg);
+    /* background-color: white; */
+}
+.game-container .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+.game-container .game-block.is-flipped,
+.game-container .game-block.has-match {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.game-container .game-block.has-match .face {
+    border-color: rgb(99, 232, 99);
+}
